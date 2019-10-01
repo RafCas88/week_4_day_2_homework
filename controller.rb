@@ -5,6 +5,11 @@ require("pry")
 require_relative("./models/game")
 also_reload("./models/*")
 
+get "/" do
+  erb( :home )
+end
+
+
 get "/game/:move1/:move2" do
   @result = Game.logic( params[:move1], params[:move2] )
   erb( :result )
